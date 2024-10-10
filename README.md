@@ -29,7 +29,11 @@ Use the code to activate your account : "olaf"
 Install Python 3.10+
 
 ```bash
-  pip install faker Pillow
+  git clone https://github.com/MrTimonM/invoice-generator.git
+  cd invoice-generator
+  python -m venv env
+  source env/bin/activate
+  pip install faker Pillow colorama
   python main.py
 ```
 
