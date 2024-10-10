@@ -3,10 +3,10 @@ import random
 from datetime import datetime
 from PIL import Image, ImageDraw, ImageFont
 import os
+from colorama import init, Fore, Style
 
-ascii_art = """Bonny Airdrop Bot V1.0.0
-Join here: https://demo.bonny.so/login
-Use this Code to Activate the Bot: "olaf"
+intro_text = 'Bonny Airdrop Bot V1.0.0 \n Join here: https://demo.bonny.so/login \n Use this Code to Activate the Bot: "olaf"'
+ascii_art = """
 ⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⢰⣿⡿⠗⠀⠠⠄⡀⠀⠀⠀⠀
 ⠀⠀⠀⠀⡜⠁⠀⠀⠀⠀⠀⠈⠑⢶⣶⡄
@@ -17,7 +17,6 @@ Use this Code to Activate the Bot: "olaf"
 ⠀⠀⠘⡀⠀⠀⠀⠀⠀⠀⠘⣿⣿⡇⠀⠀
 ⠀⠀⠀⣷⣄⡀⠀⠀⠀⢀⣴⡟⠿⠃⠀⠀
 ⠀⠀⠀⢻⣿⣿⠉⠉⢹⣿⣿⠁⠀⠀⠀⠀
-⠀⠀⠀⠀⠉⠁⠀⠀⠀⠉⠁⠀⠀⠀⠀⠀
 """
 
 a = Faker()
@@ -86,16 +85,17 @@ def y(z, a1):
         print(f"Generated receipt {a2+1}")
 
 def main():
-    print(ascii_art)
+    print(intro_text)
+    print(Fore.CYAN + ascii_art + Style.RESET_ALL)
     
-    b1 = int(input("How many receipts would you like to generate? "))
+    b1 = int(input("Enter How many receipts you want: "))
 
     c1 = os.path.join(os.getcwd(), "Generated Receipts")
     os.makedirs(c1, exist_ok=True)
 
     y(b1, c1)
 
-    print(f"All {b1} receipts have been generated and saved in '{c1}'.")
+    print(f"{b1} receipts have been generated and saved in '{c1}'.")
     input("Press Enter to exit.")
 
 if __name__ == "__main__":
